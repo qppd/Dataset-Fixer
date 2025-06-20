@@ -11,12 +11,27 @@ class MainWindow(ctk.CTk):
         # App Setup
         self.title("Dataset Fixer")
         self.geometry("900x600")
+
         self.resizable(False, False)
 
         ctk.set_appearance_mode("System")
         ctk.set_default_color_theme("blue")
 
         self.setup_ui()
+
+        self._center_window()
+    def _center_window(self):
+        self.update_idletasks()  # Ensure the window dimensions are calculated
+
+        width = self.winfo_width()
+        height = self.winfo_height()
+        screen_width = self.winfo_screenwidth()
+        screen_height = self.winfo_screenheight()
+
+        x = (screen_width // 2) - (width // 2)
+        y = (screen_height // 2) - (height // 2)
+
+        self.geometry(f"{width}x{height}+{x}+{y}")
 
     def setup_ui(self):
         # Load background image
