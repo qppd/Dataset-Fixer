@@ -1,6 +1,7 @@
 import customtkinter as ctk
 from PIL import Image
 import os
+from yolo.yolo import YOLOWindow
 
 class ModelSelectorApp(ctk.CTkToplevel):
     def __init__(self, parent):
@@ -64,8 +65,16 @@ class ModelSelectorApp(ctk.CTkToplevel):
 
     def _on_model_select(self, label):
         self.selected_model = label
-        ctk.CTkMessagebox(
-            title="Model Selected",
-            message=f"You selected:\n{self.selected_model}",
-            icon="check"
-        )
+
+        if label == "YOLO (Object Detection)":
+            self.withdraw()  # Hide this window
+            yolo_window = YOLOWindow(self)  # Open YOLO window
+            yolo_window.grab_set()  # Focus
+
+        else:
+            ctk.CTkMessagebox(
+                title="Model Selected",
+                message=f"You selected:\n{self.selected_model}",
+                icon="check"
+            )
+
