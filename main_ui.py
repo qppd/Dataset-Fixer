@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from PIL import Image
 from customtkinter import CTkImage
-import subprocess  # You can replace this later with Toplevel if preferred
+from model_selector_ui import ModelSelectorApp
 
 
 class MainWindow(ctk.CTk):
@@ -90,6 +90,6 @@ class MainWindow(ctk.CTk):
         ).place(relx=0.5, rely=0.95, anchor="center")
 
     def start_preprocessing(self):
-        # 🔁 Opens model_selector.py as a subprocess (can replace with internal routing)
-        subprocess.Popen(["python", "model_selector.py"])
-        self.destroy()
+        self.withdraw()  # Hide the main window
+        selector = ModelSelectorApp(parent=self)  # Pass self as parent
+        selector.mainloop()

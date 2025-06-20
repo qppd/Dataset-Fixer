@@ -2,9 +2,10 @@ import customtkinter as ctk
 from PIL import Image
 import os
 
-class ModelSelectorApp(ctk.CTk):
-    def __init__(self):
-        super().__init__()
+class ModelSelectorApp(ctk.CTkToplevel):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.parent = parent
         self.title("Select ML Model Type")
         self.geometry("600x500")
         self.resizable(False, False)
