@@ -23,11 +23,7 @@
 DatasetFixer/
 ├── assets/
 │   └── logo.png
-├── images/
-│   └── *.jpg
-├── labels/
-│   └── *.txt
-├── dataset_fixer.py
+├── main.py
 ├── requirements.txt
 └── README.md
 </code></pre>
