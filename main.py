@@ -1,7 +1,7 @@
-from main_ui import MainWindow
+from main_ui import Main
 
 def main():
-    app = MainWindow()
+    app = Main()
     app.mainloop()
 
 if __name__ == "__main__":

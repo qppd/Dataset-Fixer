@@ -2,8 +2,8 @@ import customtkinter as ctk
 from PIL import Image
 import os
 from yolo.yolo import YOLOWindow
-
-class ModelSelectorApp(ctk.CTkToplevel):
+from tensor.tensorflow import TENSORWindow
+class ModelSelector(ctk.CTkToplevel):
     def __init__(self, parent):
         super().__init__(parent)
         self.parent = parent
@@ -31,7 +31,7 @@ class ModelSelectorApp(ctk.CTkToplevel):
         asset_path = os.path.join(os.path.dirname(__file__), "assets")
         self.model_data = {
             "YOLO (Object Detection)": os.path.join(asset_path, "yolo_resized.png"),
-            "TensorFlow (Image Classification)": os.path.join(asset_path, "tensorflow_resized.png"),
+            "TensorFlow (Object Detection)": os.path.join(asset_path, "tensorflow_resized.png"),
             "Regression (ML)": os.path.join(asset_path, "regression_resized.png"),
             "Random Forest (ML)": os.path.join(asset_path, "random_forest_resized.png")
         }
@@ -70,6 +70,11 @@ class ModelSelectorApp(ctk.CTkToplevel):
             self.withdraw()  # Hide this window
             yolo_window = YOLOWindow(self)  # Open YOLO window
             yolo_window.grab_set()  # Focus
+
+        if label == "TensorFlow (Object Detection)":
+            self.withdraw()  # Hide this window
+            tensorflow_window = TENSORWindow(self)  # Open TENSORFLOW window
+            tensorflow_window.grab_set()  # Focus
 
         else:
             ctk.CTkMessagebox(

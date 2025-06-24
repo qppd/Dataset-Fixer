@@ -1,10 +1,10 @@
 import customtkinter as ctk
 from PIL import Image
 from customtkinter import CTkImage
-from model_selector_ui import ModelSelectorApp
+from model_selector_ui import ModelSelector
 
 
-class MainWindow(ctk.CTk):
+class Main(ctk.CTk):
     def __init__(self):
         super().__init__()
 
@@ -90,6 +90,6 @@ class MainWindow(ctk.CTk):
         ).place(relx=0.5, rely=0.95, anchor="center")
 
     def start_preprocessing(self):
-        self.withdraw()  # Hide the main window
-        selector = ModelSelectorApp(parent=self)  # Pass self as parent
+        self.withdraw()
+        selector = ModelSelector(parent=self)
         selector.mainloop()

@@ -1,8 +1,8 @@
 import customtkinter as ctk
-from model_selector_ui import ModelSelectorApp
+from model_selector_ui import ModelSelector
 
 def main():
-    app = ModelSelectorApp()
+    app = ModelSelector()
     app.mainloop()
 
 if __name__ == "__main__":
